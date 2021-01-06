@@ -32,8 +32,8 @@ function Footer() {
                 <div className="col-md-3 col-12 my-sm-0 mt-5">
                   <ul className="list-unstyled">
                     <li className="mt-md-3 mt-4">Your needs</li>
-                    <li>Intergrated Security Platform</li>
-                    <li>Core Features</li>
+                    <li>Address :-</li>
+                    <li>Adityapur</li>
                     <li>Product Features</li>
                     <li>Pricing</li>
                   </ul>
