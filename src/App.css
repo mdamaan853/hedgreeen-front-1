@@ -176,7 +176,7 @@ h4{
   .navbar {
     z-index: 9999;
     border: 0;
-    font-size: 18px !important;
+    /* font-size: 18px !important; */
     font-weight: 600 !important;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -198,6 +198,11 @@ h4{
     outline: none;
 }
   
+.nav-align{
+/* border:2px solid */
+height: 65px;
+}
+
   .modal-button{
     width: 40%;
     border: none !important;

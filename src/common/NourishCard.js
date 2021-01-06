@@ -24,7 +24,7 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img1} />
+                              <img src={props.img1} height="35px"/>
                             </div>
                             <p className="active">{props.subtitle1}</p>
                           </div>

@@ -14,7 +14,7 @@ import 'react-tabs/style/react-tabs.css';
 import {Form} from 'react-bootstrap';
 // import { ReactCodeInput } from 'CodeInputFields'
 import ".././App.css"
-// import logo from "../../public/img/heydgreen"
+import logo from "./heydgreen.jpg"
 
 <style>
 
@@ -53,8 +53,8 @@ axios.post(url+'users/login',loginDetail)
         className="shadow bg-white p-1 mb-1 "
       >
 
-        <div className="container-fluid">
-          <Navbar.Brand href="/"><img src="../../public/img/heydgreen.jpg" alt="logo"/></Navbar.Brand>
+        <div className="container-fluid nav-align">
+          <Navbar.Brand href="/"><img src={logo} height="40px" alt="logo"/></Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
             className="navbar-toggle"
