@@ -38,7 +38,10 @@ const submitHandler=(e)=>{
   e.preventDefault();
 axios.post(url+'users/login',loginDetail)
 .then((res)=>{console.log(res)
-  window.location.href="https://muadmin.heydgreen.com";
+  if(res.data.success == 1){
+    console.log('logged in')
+    //  window.location.href="https://muadmin.heydgreen.com";
+  }
 })
 .catch(err => console.log(err))
 }
@@ -52,8 +55,7 @@ axios.post(url+'users/login',loginDetail)
         bg="light"
         className="shadow bg-white p-1 mb-1 "
       >
-
-        <div className="container-fluid nav-align">
+        <div className="container-fluid">
           <Navbar.Brand href="/"><img src={logo} height="40px" alt="logo"/></Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
