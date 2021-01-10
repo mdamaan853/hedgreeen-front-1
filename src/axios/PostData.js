@@ -12,6 +12,7 @@ const PostData = () => {
   const [product, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCat,setSubcat] = useState([]);
+  const [Type,setType] = useState("0");
   useEffect(() => {
     // const fetch = async () => {
     //   const res = await axios.get(url+"product");
@@ -42,6 +43,24 @@ console.log(res.data.result))
 .catch(err => console.log(err))
 }
 
+const foodType=()=>{
+  if(Type == 0){
+    axios.get(url+`product/type/${0}`)
+    .then(res => {setType(1)
+      setProducts(res.data.result)
+       console.log(res)})
+    .catch(err => console.log(err))
+    }
+    else{
+      setType(0)
+     axios.get(url+`product`)
+    .then(res => {
+      setProducts(res.data.result)
+       console.log(res)})
+    .catch(err => console.log(err))
+    }
+}
+
   return (
     <>
       <Carousel />
@@ -69,10 +88,10 @@ console.log(res.data.result))
                       size="30"
                       // className="eat-now"
                     />
+                    
                   </h6>
                   {/* <p>Select Menu</p> */}
                 </Dropdown.Toggle>
-                
                 <Dropdown.Menu>
                   {
                     category.map(cat => <Dropdown.Item key={cat.id} onClick={() => SubCat(cat.id)} >{cat.catName}</Dropdown.Item>) 
@@ -84,8 +103,10 @@ console.log(res.data.result))
               <div class="d-flex flex-row align-items-center">
                 {/* <h5 class="mt-1">Sort by</h5> */}
                 {/* <Button className="veg-btn">VEG</Button> */}
-                <Button type="text" className="veg-btn">
-                  VEG
+                <Button type="text" className="veg-btn" onClick={()=> foodType()}>
+                  {
+                    Type == 0 ?  "All" : "Veg"
+                  }
                 </Button>
                 <Dropdown>
                   <Dropdown.Toggle id="dropdown-basic" className="filters">
@@ -99,10 +120,8 @@ console.log(res.data.result))
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">
-                      Another action
-                      <Checkboxfeature />
-                    </Dropdown.Item>
+                      <label for="points">Calaories</label>
+                      <input type="range" id="points" name="points" min="0" max="10"></input>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

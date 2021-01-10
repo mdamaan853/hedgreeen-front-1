@@ -11,6 +11,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "csshake": "^1.5.3",
+    "input-range": "^1.2.9",
     "json-server": "^0.16.3",
     "material-auto-rotating-carousel": "^3.0.2",
     "material-ui-search-bar": "^1.0.0",
