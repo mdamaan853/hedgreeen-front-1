@@ -10,15 +10,38 @@ import Product from "./Product";
 
 const PostData = () => {
   const [product, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [subCat,setSubcat] = useState([]);
   useEffect(() => {
-    const fetch = async () => {
-      const res = await axios.get(url+"product");
-      console.log(res);
-      setProducts(res.data.result);
-    };
+    // const fetch = async () => {
+    //   const res = await axios.get(url+"product");
+    //   console.log(res);
+    //   setProducts(res.data.result);
+    // };
 
+    const fetch = async () => {
+      const res = await axios.all([
+      axios.get(url+"product"),
+      axios.get(url+'category')
+    ])
+    .then(axios.spread((product,category) => {
+      setProducts(product.data.result)
+      setCategory(category.data.result)
+    }));
+  }
     fetch();
   }, []);
+
+const SubCat=(id)=>{
+console.log(id)
+axios.get(url+`category/getsub/${id}`)
+.then(res => (
+setSubcat(res.data.result),
+console.log(res.data.result))
+)
+.catch(err => console.log(err))
+}
+
   return (
     <>
       <Carousel />
@@ -44,14 +67,17 @@ const PostData = () => {
                     <FaSortDown
                       color="rgb(245, 226, 57)"
                       size="30"
-                      className="eat-now"
+                      // className="eat-now"
                     />
                   </h6>
+                  {/* <p>Select Menu</p> */}
                 </Dropdown.Toggle>
+                
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2"></Dropdown.Item>
-                </Dropdown.Menu>
+                  {
+                    category.map(cat => <Dropdown.Item key={cat.id} onClick={() => SubCat(cat.id)} >{cat.catName}</Dropdown.Item>) 
+                  }
+                  </Dropdown.Menu>
               </Dropdown>
             </div>
             <div class="d-flex flex-row align-items-center ">
@@ -92,42 +118,14 @@ const PostData = () => {
             >
               <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
-                  <li class="nav-item">
+                  {
+                    subCat.map(sub => <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">
-                      <span data-feather="home"></span>
-                      Indian Meals
+                      <span data-feather="home"></span>  
+                   {sub.catName}
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="file"></span>
-                      Indian Meals
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="shopping-cart"></span>
-                      Indian Meals
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="users"></span>
-                      Indian Meals
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="bar-chart-2"></span>
-                      Indian Meals
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span data-feather="layers"></span>
-                      Indian Meals
-                    </a>
-                  </li>
+                    )}
                 </ul>
               </div>
             </nav>
