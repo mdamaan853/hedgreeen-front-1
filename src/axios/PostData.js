@@ -119,9 +119,10 @@ const foodType=()=>{
                     <span className="ml-2">FILTERS</span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                      <label for="points">Calaories</label>
-                      <input type="range" id="points" name="points" min="0" max="10"></input>
+                    <Dropdown.Item href="#/action-1">calories</Dropdown.Item>
+                    {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item> */}
+                      {/* <label for="points">Calaories</label>
+                      <input type="range" id="points" name="points" min="0" max="10"></input> */}
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
