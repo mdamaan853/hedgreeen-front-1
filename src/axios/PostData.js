@@ -97,7 +97,7 @@ const foodType=()=>{
                     category.map(cat => <Dropdown.Item key={cat.id} onClick={() => SubCat(cat.id)} >{cat.catName}</Dropdown.Item>) 
                   }
                   </Dropdown.Menu>
-              </Dropdown>
+              </Dropdown> 
             </div>
             <div class="d-flex flex-row align-items-center ">
               <div class="d-flex flex-row align-items-center">

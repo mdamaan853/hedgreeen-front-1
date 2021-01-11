@@ -410,6 +410,9 @@ background-color: transparent !important;
   border:#dee2e6 !important;
 }
 
+/* .veg-non{
+  width: 20px;
+} */
 
 .dropdown-toggle::after {
   display:none;
@@ -443,6 +446,7 @@ letter-spacing: 2px;
   padding: 4px 12px 3px;
   border-radius: 4px;
   outline: none !important;
+  width:60px;
 }
 .veg-btn:hover{
   color: black;
