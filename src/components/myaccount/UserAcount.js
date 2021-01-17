@@ -11,7 +11,6 @@ const UserAcount = () => {
   const [showEditProfile, setshowEditProfile] = useState(false);
   const handlehideEditProfile = () => setshowEditProfile(false);
   const handleShowEditProfile = () => setshowEditProfile(true);
-
   return (
     <>
       <EditProfileModal show={showEditProfile} onHide={handlehideEditProfile} />

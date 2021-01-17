@@ -7,7 +7,7 @@ import axios from "axios";
 import { url } from "../../url";
 function AddAddressModal(props) {
   const [result, setResult] = useState({
-    userId: "",
+    userId: "0",
     address: "",
     state: "",
     pincode: "",
@@ -48,6 +48,17 @@ function AddAddressModal(props) {
         <Modal.Body>
           <form>
             <div className="form-row">
+            <Form.Group className="col-md-12">
+                <input
+                  className="input"
+                  type="text"
+                  name="userId"
+                  value={result.userId}
+                  onChange={handleChange}
+                  placeholder="Address Detail"
+                  hidden
+                />
+              </Form.Group>
               <Form.Group className="col-md-12">
                 <input
                   className="input"

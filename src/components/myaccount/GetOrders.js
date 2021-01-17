@@ -11,7 +11,6 @@ const GetOrders = () => {
       console.log(res);
       setOrders(res.data.result);
     };
-
     fetch();
   }, []);
   return (
