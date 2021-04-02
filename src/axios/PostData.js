@@ -20,7 +20,7 @@ const PostData = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await axios
-        .all([axios.get( + "prourlduct"), axios.get(url + "category")])
+        .all([axios.get( url + "product"), axios.get(url + "category")])
         .then(
           axios.spread((product, category) => {
             setProducts(product.data.result);
