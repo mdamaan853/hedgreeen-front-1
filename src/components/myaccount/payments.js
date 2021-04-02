@@ -52,16 +52,15 @@ import Cart from "../cart/Cart"
   }
   export function Payments(){
   // render() {
-    const razor="hello"
-    const props={razor}
+    // const razor="hello"
+    const props={razorPayPaymentHandler}
     return (
       <div>
-        <Cart {...props}/>
-        {/* <button 
+        <button 
         onClick={razorPayPaymentHandler}
         className="btn btn-primary">
           Pay Now
-        </button> */}
+        </button>
       </div>
     )
   }

@@ -14,10 +14,8 @@ import {
 import { addToCart, removeFromCart } from "../../actions/CartActions";
 import { FaTrashAlt } from "react-icons/fa";
 import { url } from "../../url";
-import Payments from "../myaccount/payments";
 
-function Cart({ match, location, history,razor}) {
-  // const {razor}=this.props;
+function Cart({ match, location}) {
   const productId = match.params.id;
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
@@ -114,19 +112,23 @@ const totalPrice=""
               <b>
                 ₹
                 {cartItems
-                  .reduce((acc, item) =>acc + item.qty * item.price, 0)
-                  .toFixed(2)}
+                  .reduce((acc, item) =>(
+                    acc + item.qty * item.price, 0)
+                    .toFixed(2)
+                    )
+                }
               </b>
             </ListGroup.Item>
             <ListGroup.Item>
+            <Link className="link" to={`/myaccount/payments`}>
               <Button
                 variat="light"
-                onClick={()=>console.log(razor)}
                 className="btn-block border-0"
                 disabled={cartItems.length === 0}
               >
                 Checkout
               </Button>
+              </Link>
             </ListGroup.Item>
           </ListGroup>
         </Col>
