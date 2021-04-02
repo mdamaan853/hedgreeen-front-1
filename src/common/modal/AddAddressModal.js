@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import Icofont from "react-icofont";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../url";
 function AddAddressModal(props) {
+  let history = useHistory();
   const [result, setResult] = useState({
-    userId: "0",
+    userId: 0,
     address: "",
     state: "",
     pincode: "",
@@ -20,9 +20,10 @@ function AddAddressModal(props) {
   function submit(e) {
     e.preventDefault();
     axios
-      .post(url+"Address", result)
+      .post(url + "Address", result)
       .then((res) => {
         console.log(res);
+        history.push("myaccount/address");
       })
       .catch((error) => {
         console.log(error);
@@ -33,29 +34,19 @@ function AddAddressModal(props) {
       <Modal show={props.show} onHide={props.onHide} centered>
         <Modal.Header closeButton={true}>
           <Modal.Title id="add-address">
-            <div class="card-body text-center mb-5">
-              {" "}
-              <img
-                src="https://i.imgur.com/7ElCsL1.png"
-                height="200"
-                width="200"
-                margin="30%"
-              />
-              <h5 class="mt-1 text-center">Add Delivery Address</h5>
-            </div>
+            <h5 class="mt-1 m-auto">Add Delivery Address</h5>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
             <div className="form-row">
-            <Form.Group className="col-md-12">
+              <Form.Group className="col-md-12">
                 <input
                   className="input"
                   type="text"
                   name="userId"
                   value={result.userId}
                   onChange={handleChange}
-                  placeholder="Address Detail"
                   hidden
                 />
               </Form.Group>
@@ -92,7 +83,7 @@ function AddAddressModal(props) {
               <Form.Group className="col-md-12">
                 <input
                   className="input"
-                  type="number"
+                  type="text"
                   name="phoneNumber"
                   value={result.phoneNumber}
                   onChange={handleChange}
@@ -121,7 +112,7 @@ function AddAddressModal(props) {
             >
               SUBMIT
             </Button>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
           </div>
         </Modal.Footer>
       </Modal>

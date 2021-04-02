@@ -4,8 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Card, Media } from "react-bootstrap";
 import Icofont from "react-icofont";
-import {url} from "../url"
-// import PropTypes from "prop-types";
+import { url } from "../url";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 function AddressCard({ result }) {
@@ -17,12 +17,12 @@ function AddressCard({ result }) {
   // const handleShowAddressModal = () => setShowAddressModal(true);
   const [address, setAddress] = useState([]);
   const removeData = (id) => {
-    let Url = url+`Address/${id}`;
+    let Url = url + `Address/${id}`;
 
     axios.delete(Url).then((res) => {
       const del = address.filter((res) => res.id !== id);
       setAddress(del);
-      toast("please referesh page");
+
       console.log("res", res);
     });
   };
@@ -62,13 +62,13 @@ function AddressCard({ result }) {
   );
 }
 
-// AddressCard.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   icoIcon: PropTypes.string.isRequired,
-//   iconclassName: PropTypes.string,
-//   address: PropTypes.string,
-//   onEditClick: PropTypes.func.isRequired,
-//   onDeleteClick: PropTypes.func.isRequired,
-// };
+AddressCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  icoIcon: PropTypes.string.isRequired,
+  iconclassName: PropTypes.string,
+  address: PropTypes.string,
+  onEditClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
+};
 
 export default AddressCard;

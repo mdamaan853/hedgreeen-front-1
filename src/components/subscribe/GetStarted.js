@@ -1,13 +1,6 @@
 import React from "react";
 import { Steps, Button, message } from "antd";
-import { Link } from "react-router-dom";
 import SubscribeCard from "../../common/SubscribeCard";
-import {
-  UserOutlined,
-  SolutionOutlined,
-  LoadingOutlined,
-  SmileOutlined,
-} from "@ant-design/icons";
 
 function GetStarted(props) {
   const { Step } = Steps;
@@ -48,7 +41,8 @@ function GetStarted(props) {
         subtitle2="Healthy Eating"
         subtitle3="Improve Immunity"
         subtitle4="Muscle Gain"
-        link="/nourish"
+        link1="/subscribe"
+        link2="/nourish"
       />
     </div>
   );

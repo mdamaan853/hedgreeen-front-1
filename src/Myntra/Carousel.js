@@ -6,9 +6,16 @@ import carousel3 from "./images/carousel3.jpg";
 import carousel4 from "./images/carousel4.jpg";
 
 function CarouselDemo() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <div>
-      <Carousel>
+           <Carousel>
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={carousel3} alt="First slide" />
           <Carousel.Caption></Carousel.Caption>

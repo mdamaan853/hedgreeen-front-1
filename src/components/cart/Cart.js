@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+//import {Payments} from "../myaccount/payments"
 import {
   Col,
   Row,
@@ -13,13 +14,16 @@ import {
 import { addToCart, removeFromCart } from "../../actions/CartActions";
 import { FaTrashAlt } from "react-icons/fa";
 import { url } from "../../url";
+import Payments from "../myaccount/payments";
 
-function Cart({ match, location, history }) {
+function Cart({ match, location, history,razor}) {
+  // const {razor}=this.props;
   const productId = match.params.id;
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+const totalPrice=""
 
   useEffect(() => {
     if (productId) {
@@ -30,7 +34,8 @@ function Cart({ match, location, history }) {
     dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
-    history.push("/login?redirect=shipping");
+    // console.log(totalPrice)
+    // history.push("/login?redirect=shipping");
   };
   return (
     <Container>
@@ -66,7 +71,7 @@ function Cart({ match, location, history }) {
                     <Col md={2} className="mb-2 cart-price">
                       <b>₹ {item.price}</b>
                     </Col>
-                    <Col md={2}>
+                    <Col md={5} sm={4}>
                       <Form.Control
                         className="mt-3 qty "
                         as="select"
@@ -86,7 +91,7 @@ function Cart({ match, location, history }) {
                     </Col>
                     <Col>
                       <Button
-                        variat="light"
+                        variant="light"
                         onClick={() => removeFromCartHandler(item.product)}
                         className="mt-3 cart-btn mx-auto border-0"
                       >
@@ -109,14 +114,14 @@ function Cart({ match, location, history }) {
               <b>
                 ₹
                 {cartItems
-                  .reduce((acc, item) => acc + item.qty * item.price, 0)
+                  .reduce((acc, item) =>acc + item.qty * item.price, 0)
                   .toFixed(2)}
               </b>
             </ListGroup.Item>
             <ListGroup.Item>
               <Button
                 variat="light"
-                onClick={checkoutHandler}
+                onClick={()=>console.log(razor)}
                 className="btn-block border-0"
                 disabled={cartItems.length === 0}
               >

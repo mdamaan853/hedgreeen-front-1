@@ -17,7 +17,8 @@ function NourishPref() {
         subtitle4="Kids Nourish"
         subtitle5="Diabetic Nourish"
         subtitle6="Body Nourish"
-        link="/foodtype"
+        link1="/getstarted"
+        link2="/foodtype"
       />
     </div>
   );

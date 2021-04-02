@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import AddAddressModal from "../../common/modal/AddAddressModal";
 import AddressCard from "../../common/AddressCard";
 import { url } from "../../url";
+import Spinner from "../../common/loader/Spinner";
 const GetAddress = (result) => {
   const [address, setAddress] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetch = async () => {
       const res = await axios.get(url+"Address");
-      console.log(res);
       setAddress(res.data.result);
+      setIsLoading(false);
     };
 
     fetch();
@@ -19,6 +21,9 @@ const GetAddress = (result) => {
 
   return (
     <>
+     {isLoading ? (
+        <Spinner />
+      ) : (
       <div className="p-4 bg-white shadow-sm">
         <Row>
           <Col md={12}>
@@ -32,9 +37,6 @@ const GetAddress = (result) => {
         </Row>
         <Row>
           <Col>
-            {/* <Button className="address-btn" onClick="">
-              Add Address99999
-            </Button> */}
             <button
               className="btn address-btn"
               onClick={() => setModalShow(true)}
@@ -47,7 +49,7 @@ const GetAddress = (result) => {
             />
           </Col>
         </Row>
-      </div>
+      </div>)}
     </>
   );
 };

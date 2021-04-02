@@ -54,7 +54,7 @@
 import React, { Component } from "react";
 import { Container, Button, Row, Col, Form } from "react-bootstrap";
 // import Icofont from "react-icofont";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Redirect, Switch } from "react-router-dom";
 import axios from "axios";
@@ -77,9 +77,8 @@ class EditAddressModal extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     const id = this.props.match.params.id;
-    axios.get(url+`Address/${id}`).then(
+    axios.get(url + `Address/${id}`).then(
       (res) => {
         console.log(res);
         this.setState({
@@ -100,20 +99,18 @@ class EditAddressModal extends Component {
   FormSubmit = (e) => {
     e.preventDefault();
     const fd = new FormData();
-
     fd.append("address", this.state.address);
     fd.append("userId", this.state.userId);
     fd.append("state", this.state.state);
     fd.append("phoneNumber", this.state.phoneNumber);
     fd.append("pincode", this.state.pincode);
     axios
-      .patch(url+"Address/" + this.state.id, fd, {
+      .patch(url + "Address/" + this.state.id, fd, {
         headers: {
           "content-type": "multipart/form-data",
         },
       })
       .then((response) => {
-        toast("updated successfully!");
         <Switch>
           <Redirect to="/myaccount/address" />
         </Switch>;
@@ -128,53 +125,56 @@ class EditAddressModal extends Component {
       <div>
         <Container>
           <Row>
-            <Col md={10} className="mt-4">
-              <form className=" w-100 mt-5 ">
-                <div className="form-row">
-                  <Form.Control
-                    type="text"
-                    className="input"
-                    name="address"
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                    placeholder="Address Detail"
-                  />
+            <Col className="" lg={6}></Col>
+            <Col lg={6} className="mt-4">
+              <Col md={10}>
+                <form className="mt-5 ">
+                  <div className="form-row">
+                    <Form.Control
+                      type="text"
+                      className="input"
+                      name="address"
+                      value={this.state.address}
+                      onChange={this.handleChange}
+                      placeholder="Address Detail"
+                    />
 
-                  <Form.Control
-                    type="text"
-                    name="pincode"
-                    className="input"
-                    value={this.state.pincode}
-                    onChange={this.handleChange}
-                    placeholder="Pincode"
-                  />
-                  <Form.Control
-                    type="text"
-                    name="state"
-                    className="input"
-                    value={this.state.state}
-                    onChange={this.handleChange}
-                    placeholder="state"
-                  />
+                    <Form.Control
+                      type="text"
+                      name="pincode"
+                      className="input"
+                      value={this.state.pincode}
+                      onChange={this.handleChange}
+                      placeholder="Pincode"
+                    />
+                    <Form.Control
+                      type="text"
+                      name="state"
+                      className="input"
+                      value={this.state.state}
+                      onChange={this.handleChange}
+                      placeholder="state"
+                    />
 
-                  <Form.Control
-                    type="number"
-                    className="input w-60"
-                    name="phoneNumber"
-                    value={this.state.phoneNumber}
-                    onChange={this.handleChange}
-                    placeholder="phoneNumber"
-                  />
-                  <Button
-                    type="button"
-                    className="btn-block mx-auto mt-5 d-flex justify-content-center"
-                    onClick={this.FormSubmit}
-                  >
-                    UPDATE
-                  </Button>
-                  <ToastContainer />
-                </div>
-              </form>
+                    <Form.Control
+                      type="number"
+                      className="input w-60"
+                      name="phoneNumber"
+                      value={this.state.phoneNumber}
+                      onChange={this.handleChange}
+                      placeholder="phoneNumber"
+                    />
+                    <Button
+                      type="button"
+                      className="btn-block mx-auto mt-4  justify-content-center"
+                      onClick={this.FormSubmit}
+                    >
+                      UPDATE
+                    </Button>
+                    {/* <ToastContainer /> */}
+                  </div>
+                </form>
+              </Col>
             </Col>
           </Row>
         </Container>

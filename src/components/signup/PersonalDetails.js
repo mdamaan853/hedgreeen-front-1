@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { Form, Container, Col, Row } from "react-bootstrap";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Select from "@material-ui/core/Select";
 
 const initialState = {
   gender: "",

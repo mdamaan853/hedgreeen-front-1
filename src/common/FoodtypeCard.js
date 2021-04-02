@@ -1,14 +1,21 @@
 import React from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Tooltip, Button, message } from "antd";
 import PropTypes from "prop-types";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
+import food from "./assets/food.svg";
 function FoodtypeCard(props) {
   return (
     <div>
       <Container>
         <Row>
-          <Col lg={6}></Col>
+          <Col lg={6}>
+            <Figure>
+              {/* <img src="img/diet1.png" width="585" height="494" /> */}
+              <img alt="food" className="sub-img" src={food} />
+            </Figure>
+          </Col>
           <Col lg={6} className="mt-4">
             <h3 className="mt-4 mb-2">{props.title}</h3>
             <div className="step-img">
@@ -23,14 +30,18 @@ function FoodtypeCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img1} />
+                              <label>
+                                {/* <input type="text" value="" /> */}
+                                <img src={props.img1} />
+                                <p className="active">{props.subtitle1}</p>
+                              </label>
                             </div>
-                            <p className="active">{props.subtitle1}</p>
                           </div>
-
                           <div className="col-3">
                             <Tooltip title="prompt text" color="yellow">
-                              <Button>hello</Button>
+                              <Button>
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -40,14 +51,18 @@ function FoodtypeCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img2} />
+                              <label>
+                                {/* <input type="text" value="" /> */}
+                                <img src={props.img2} />
+                                <p className="active">{props.subtitle2}</p>
+                              </label>
                             </div>
-                            <p className="active">{props.subtitle2}</p>
                           </div>
-
                           <div className="col-3">
                             <Tooltip title="prompt text" color="yellow">
-                              <Button>hello</Button>
+                              <Button>
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -56,14 +71,17 @@ function FoodtypeCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img3} />
+                              <label>
+                                <img src={props.img3} />
+                                <p className="active">{props.subtitle3}</p>
+                              </label>
                             </div>
-                            <p className="active">{props.subtitle3}</p>
                           </div>
-
                           <div className="col-3">
                             <Tooltip title="prompt text" color="yellow">
-                              <Button>hello</Button>
+                              <Button>
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -74,10 +92,18 @@ function FoodtypeCard(props) {
               </form>
             </Col>
             <Link to={props.link1}>
-              <Button className="mr-3">Back</Button>
+              <Button className="mr-3 sub-btn">
+                {" "}
+                <FaArrowLeft className="sub-arrow" />
+                Back
+              </Button>
             </Link>
-            <Link to={props.link2}>
-              <Button>Next</Button>
+            {/* <Link to={props.link2}> */}
+            <Link to={'/'}>
+              <Button className="sub-btn" type="submit" >
+                Submit
+                <FaArrowRight className="sub-arrow" />
+              </Button>
             </Link>
           </Col>
         </Row>

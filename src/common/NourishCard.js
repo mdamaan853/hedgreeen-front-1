@@ -1,20 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Tooltip, Button, message } from "antd";
 import PropTypes from "prop-types";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
+import jogging from "./assets/svg/Jogging Colour/jogging.png";
 function NourishCard(props) {
   return (
     <div>
-      {" "}
       <Container>
         <Row>
-          <Col lg={6}></Col>
+          <Col lg={6}>
+            <Figure>
+              <img alt="img" alt="jogging" className="sub-img" src={jogging} />
+            </Figure>
+          </Col>
           <Col lg={6}>
             <h3 className="mt-4 mb-3">{props.title}</h3>
-            <div className="step-img">
-              {/* <img src={props.step} alt="goals" /> */}
-            </div>
             <Col md={10}>
               <form>
                 <div className="meal-days">
@@ -24,17 +26,20 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img1} height="35px"/>
+                              <label>
+                                <img alt="img" src={props.img1} height="35px" />
+                              <p className="active">{props.subtitle1}</p>
+                              </label>
                             </div>
-                            <p className="active">{props.subtitle1}</p>
                           </div>
-
                           <div className="col-3 ">
                             <Tooltip
                               title="text for nourishment"
                               color="yellow"
                             >
-                              <Button className="tooltip-button">info</Button>
+                              <Button className="tooltip-button">
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -44,17 +49,20 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img2} />
-                            </div>
+                              <label>
+                              <img alt="img" src={props.img2} />
                             <p className="active">{props.subtitle2}</p>
+                           </label>
+                            </div>
                           </div>
-
                           <div className="col-3 ">
                             <Tooltip
                               title="text for nourishment"
                               color="yellow"
                             >
-                              <Button className="tooltip-button">info</Button>
+                              <Button className="tooltip-button">
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -63,9 +71,11 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img3} />
-                            </div>
+                              <label>
+                              <img alt="img" src={props.img3} />
                             <p className="active">{props.subtitle3}</p>
+                           </label>
+                            </div>
                           </div>
 
                           <div className="col-3 ">
@@ -73,7 +83,9 @@ function NourishCard(props) {
                               title="text for nourishment"
                               color="yellow"
                             >
-                              <Button className="tooltip-button">info</Button>
+                              <Button className="tooltip-button">
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -82,9 +94,15 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img4} className="nourish-img" />
-                            </div>
+                              <label>
+                              <img
+                                src={props.img4}
+                                alt="img"
+                                className="nourish-img"
+                                />
                             <p className="active">{props.subtitle4}</p>
+                                </label>
+                            </div>
                           </div>
 
                           <div className="col-3 ">
@@ -92,7 +110,9 @@ function NourishCard(props) {
                               title="text for nourishment"
                               color="yellow"
                             >
-                              <Button className="tooltip-button">info</Button>
+                              <Button className="tooltip-button">
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -101,9 +121,11 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img5} />
-                            </div>
+                              <label>
+                              <img alt="img" src={props.img5} />
                             <p className="active">{props.subtitle5}</p>
+                           </label>
+                            </div>
                           </div>
 
                           <div className="col-3 ">
@@ -111,7 +133,10 @@ function NourishCard(props) {
                               title="text for nourishment"
                               color="yellow"
                             >
-                              <Button className="tooltip-button">info</Button>
+                              <Button className="tooltip-button">
+                                {" "}
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -121,14 +146,18 @@ function NourishCard(props) {
                         <Row>
                           <div className="col-9">
                             <div>
-                              <img src={props.img6} />
-                            </div>
+                              <label>
+                              <img alt="img" src={props.img6} />
                             <p className="active">{props.subtitle6}</p>
+                           </label>
+                            </div>
                           </div>
 
                           <div className="col-3  ">
                             <Tooltip title="prompt text" color="yellow">
-                              <Button className="tooltip-button">info</Button>
+                              <Button className="tooltip-button">
+                                <i>i</i>
+                              </Button>
                             </Tooltip>
                           </div>
                         </Row>
@@ -138,9 +167,16 @@ function NourishCard(props) {
                 </div>
               </form>
             </Col>
-
-            <Link to={props.link}>
-              <Button>Next</Button>
+            <Link to={props.link1}>
+              <Button className="mr-3 sub-btn">
+                <FaArrowLeft className="sub-arrow" />
+                Back
+              </Button>
+            </Link>
+            <Link to={props.link2}>
+              <Button className="sub-btn">
+                Next <FaArrowRight className="sub-arrow" />
+              </Button>
             </Link>
           </Col>
         </Row>
