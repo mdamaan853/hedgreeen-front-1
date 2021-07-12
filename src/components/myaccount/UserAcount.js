@@ -17,7 +17,6 @@ const UserAcount = () => {
   useEffect(() => {
     const user=JSON.parse(localStorage.getItem('userDetail'));
     setuserDetail(user)
-    console.log(user)
   },[]);
 
   return (
